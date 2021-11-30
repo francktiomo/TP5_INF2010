@@ -26,7 +26,7 @@ public class Heap {
     }
 
     private int rightChild(int pos) {
-       return (2 * pos) + 1;
+        return (2 * pos) + 1;
     }
 
 
@@ -73,14 +73,22 @@ public class Heap {
     }
 
     /*TODO Find the vertex in the heap using the Vertex's index and decrease the key and heapify the elements. */
-    public void decreaseKey(Vertex v, int newCost){
-
+    public void decreaseKey(Vertex v, int newCost) {
+        Heap[++v.index].cost = newCost;
+        minHeapify(1);
     }
 
     /*TODO Find the smallest cost unknown Vertex in the Heap. */
-    public Vertex findSmallestUnknown(){
+    public Vertex findSmallestUnknown() {
+        int minCost = Integer.MAX_VALUE;
+        int index = 1;
+        for (int i = 1; i <= size; i++)
+            if (Heap[i].cost <= minCost && !Heap[i].known) {
+                minCost = Heap[i].cost;
+                index = i;
+            }
 
-        return null;
+        return Heap[index];
     }
 
     public Vertex poll() {

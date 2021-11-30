@@ -4,7 +4,7 @@ public class Vertex implements Comparable<Vertex> {
     Vertex path;
     boolean known;
 
-    public Vertex(int cost, int index){
+    public Vertex(int cost, int index) {
         this.cost = cost;
         this.index = index;
         known = false;
@@ -12,7 +12,8 @@ public class Vertex implements Comparable<Vertex> {
 
     @Override
     public int compareTo(Vertex o) {
+
         /* Implement comparison between the cost of two edges */
-        return -1;
+        return this.cost - o.cost;
     }
 }
