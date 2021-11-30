@@ -33,7 +33,7 @@ public class DirectedGraphWeighted {
         String ln = System.getProperty("line.separator");
         o.append(vertexCapacity).append(ln).append(edgeQuantity).append(ln);
         for (int v=0; v<vertexCapacity; v++)
-            for(Vertex w : neighbours[v])
+            for (Vertex w : neighbours[v])
                 o.append(v + "->" + w.cost + ln);
 
         return o.toString();
@@ -41,7 +41,7 @@ public class DirectedGraphWeighted {
 
     /* TODO Return a HashMap of adjacent edges / vertices */
     public HashSet<Vertex> adj(int v) {
-        if(v<0 || v>=vertexCapacity)
+        if (v<0 || v>=vertexCapacity)
             return null;
 
         return neighbours[v];

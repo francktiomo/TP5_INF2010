@@ -94,10 +94,10 @@ public class Heap {
     public Vertex poll() {
         Vertex popped = Heap[FRONT];
         Heap[FRONT] = Heap[size--];
-        if(size > 1)
+        if (size > 1)
             minHeapify(FRONT);
 
-        if(size < 1){
+        if (size < 1){
             isEmpty = true;
         }
 
