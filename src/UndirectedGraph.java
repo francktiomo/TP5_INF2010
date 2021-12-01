@@ -18,10 +18,16 @@ public class UndirectedGraph implements Graph {
     @Override
     public void connect(int v1, int v2){
         /*TODO Implement necessary conditions for connect and justify each condition */
+
+        /* Vérification des paramètres. v1 et v2 sont des sommets du graphes, mais sont aussi
+        des index du hashset neighbours, raison pour laquelle cette vérification est
+        nécessaire: on s'assure que les index sont dans l'intervalle indexable. */
+
         if (v1<0 || v1>=nodeQuantity)
             return;
         if (v2<0 || v2>=nodeQuantity)
             return;
+        /* return si les noeuds sont  déjà connectés */
         if (neighbours[v1].contains(v2))
             return;
 

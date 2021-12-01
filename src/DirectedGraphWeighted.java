@@ -69,6 +69,12 @@ public class DirectedGraphWeighted {
             if (v == null)
                 break;
             v.known = true;
+
+            /* Nombre d'itérations maximale: vertexCapacity (si le sommet v est adjacent à tous les autres sommets du graphe)
+                Nombre d'itérations minimale: 0 (si le sommet v n'a pas d'adjacents)
+                Nombre de modifications du coût d'un sommet dans le pire cas: vertexCapacity - 1 (le sommet est adjacent à
+                tous les autres sommets du graphe et ces sommets sont parcourus ne ordre décroissant de leur coût).
+             */
             for (Vertex w : adj(v.index))
                 /* TODO Decrease the cost of the vertex in the Heap using decreaseKey if conditions are met */
                 if (!w.known)
@@ -79,6 +85,12 @@ public class DirectedGraphWeighted {
         }
 
         /*TODO Add up the total cost of the elements in the Heap */
+
+        /* Nombre d'itérations pour :
+           - 10 sommets : 9
+           - 100 sommets : 99
+           - 1000 sommets : 999
+         */
         for (int i = 1; i < vertices.Heap.length; ++i)
             totalCost += vertices.Heap[i].cost;
 
